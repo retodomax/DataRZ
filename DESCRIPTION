@@ -1,0 +1,12 @@
+Package: DataRZ
+Type: Package
+Title: Useful Datasets
+Version: 0.1.0
+Author: Reto Zihlmann
+Maintainer: Reto Zihlmann <retozihlmann@outlook.com>
+Description: Contains all important data sets used in the examples
+    of intro to R.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
