@@ -29,8 +29,7 @@ pine <- data.frame(rbind(combinations, combinations),
                    y = c(25, 45, 50, 42, 62, 52, 62, 80, 88,
                          25, 42, 50, 38, 58,62, 55, 75, 95))
 
-## PlantGroth
-data("PlantGrowth")
+
 
 ## cheddar
 cheddar <- data.frame(R50 = rep(c("no", "yes", "no", "yes"), each = 3),
@@ -65,45 +64,44 @@ trigly <- data.frame(y = c(142.3, 144.0, 148.6, 146.9, 142.9, 147.4,
                            141.7, 141.2),
                      day = factor(rep(1:4, each = 8)),
                      machine = factor(rep(rep(1:4, each = 2), 2)))
-## ergoStool
-data("ergoStool", package = "nlme")
-ergoStool$Subject <- factor(ergoStool$Subject, ordered = FALSE)
-
-
-## Machines
-data("Machines", package = "nlme")
-Machines$Worker <- factor(Machines$Worker, ordered = FALSE)
-
 
 ## cheese.data
 cheese.data <- read.table("http://stat.ethz.ch/~meier/teaching/data/cheese.dat",
                           header = TRUE)
 cheese.data[, "rater"] <- factor(cheese.data[, "rater"])
 
-## Pastes
+## dish
+dish <- read.table("http://users.stat.umn.edu/~gary/book/fcdae.data/exmpl14.2",
+                   skip = 14, header = TRUE,
+                   colClasses = c(rep("factor", 2), "numeric"))
+dish$session <- factor(dish$session, levels = 1:12) ## change order of levels
+
+
+## ergoStool
+data("ergoStool", package = "nlme")
+ergoStool$Subject <- factor(ergoStool$Subject, ordered = FALSE)
+
+## Machines
+data("Machines", package = "nlme")
+Machines$Worker <- factor(Machines$Worker, ordered = FALSE)
+
+## Unchanged from other packages
+data("PlantGrowth")
 data("Pastes", package = "lme4")
-
-## Oats
 data("oats", package = "MASS")
-
-
 
 
 # Data sets of Regression (HS18) ------------------------------------------
 
 
 load("C:/Users/Reto/OneDrive - ETHZ/Dokumente/ETH/Applied Statistical Regression/Ap_Reg/data/unique2010.rda")
-
-data("Leinhardt")
-
 apm <- read.delim("https://raw.githubusercontent.com/retodomax/data_archive/master/apm")
-
-data("Prestige")
-
 baby <- read.csv("C:/Users/Reto/OneDrive - ETHZ/Dokumente/ETH/Applied Statistical Regression/Ap_Reg/data/baby.csv")
 
-data(gala, package = "faraway")
-
+## Unchanged from other packages
+data("Prestige")
+data("Leinhardt")
+data("gala", package = "faraway")
 
 
 
@@ -115,16 +113,19 @@ data(gala, package = "faraway")
 # save(baby, file="data/baby.RData")
 # save(cheddar, file="data/cheddar.RData")
 # save(cheese.data, file="data/cheese.data.RData")
+# save(dish, file = "data/dish.RData")
 # save(ergoStool, file="data/ergoStool.RData")
-# save(gala, file="data/gala.RData")
 # save(grasses, file="data/grasses.RData")
-# save(Leinhardt, file="data/Leinhardt.RData")
 # save(Machines, file="data/Machines.RData")
 # save(meat, file="data/meat.RData")
-# save(oats, file="data/oats.RData")
-# save(Pastes, file="data/Pastes.RData")
 # save(pine, file="data/pine.RData")
-# save(Prestige, file="data/Prestige.RData")
 # save(snails, file="data/snails.RData")
 # save(trigly, file="data/trigly.RData")
 # save(unique2010, file="data/unique2010.RData")
+
+### From other packages
+# save(Pastes, file="data/Pastes.RData")
+# save(oats, file="data/oats.RData")
+# save(Prestige, file="data/Prestige.RData")
+# save(Leinhardt, file="data/Leinhardt.RData")
+# save(gala, file="data/gala.RData")
